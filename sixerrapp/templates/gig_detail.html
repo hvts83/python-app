@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page %}
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h3>{{ gig.title }}</h3>
+          <hr/>
+          <img class="img-fluid center-block" src="/media/{{ gig.photo }}" alt="">
+        </div>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <h4>About this Gig</h4>
+          </div>
+          <div class="card-body">
+            <p>{{ gig.description }}</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <h4>Review</h4>
+            <ul class="list-group">
+              {% for i in '123' %}
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <img class="img-responsive center-block" height="50px" width="50px" src="{% static 'img/avatar.png' %}" alt="">
+                    </div>
+                    <div class="col-md-10">
+                      <h5>Iron Man</h5>
+                      <p>This guy is awesome</p>
+                    </div>
+                  </div>
+                </li>
+
+              {% endfor %}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <button type="button" class="btn btn-success btn-block" name="button">Order now ${{ gig.price }}</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <img src="{% static 'img/avatar.png' %}" class="rounded mx-auto d-block" height="100px" width="100px" alt="">
+          <a href="{% url 'profile' gig.user.username %}"><h4 class="text-center">{{ gig.user.username }}</h4></a>
+          <hr/>
+          <p>{{ gig.user.profile.about }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

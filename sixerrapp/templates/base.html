@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sixerr App</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  </head>
+  <body>
+    <!--navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Sixerr</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <form class="navbar-form navbar-left" role="search" method="GET" action="/search/">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" name="title" class="form-control" placeholder="Find services">
+                  <span class="input-group-btn">
+                    <button class="btn btn-sucess">Find</button>
+                  </span>
+                </div>
+              </div>
+      </form>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_gig'%}">Create a Gig <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'my_gigs'%}">My Gigs<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/category/graphics-design">Graphics & Design</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/category/digital-marketing">Digital & Marketing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/category/video-animation">Video & Animation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/category/music-audio">Music & Audio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/category/programming-tech">Programming & Tech</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Categories
+    </span>
+
+</nav>
+    <!--navbar -->
+    <div class="container">
+      {% block page %}
+      {% endblock %}
+    </div>
+    <footer id="footer">
+      <hr/>
+      <div class="container">
+        <p>Sixerr App & &copy; 2020</p>
+      </div>
+    </footer>
+  </body>
+</html>
